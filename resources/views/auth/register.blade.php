@@ -21,7 +21,7 @@
             <input type="text" placeholder="Nama" required>
             <input type="email" placeholder="Email" required>
             <input type="password" placeholder="Password" required>
-            <input type="confirm_password" placeholder="Confirm Password" required>
+            <input type="confirm_pass" placeholder="Confirm Password" required>
             <button class="btn-login">Register</button>
 
             <div class="switch-auth">
