@@ -3,9 +3,10 @@
 
     <div class="hero-overlay"></div>
 
-    <div class="hero-content">
-        <h1>Lorem Ipsum</h1>
-        <p>Lorem Ipsum</p>
+    <div="hero-content">
+        <h1>Tinggalkan Layar, Turun ke Ladang!</h1>
+        <p>Ubah akhir pekanmu jadi lebih hijau!</p>
+        <p1>Cek jadwal workshop terdekat di web GREE sekarang juga!
     </div>
 </div>
 

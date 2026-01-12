@@ -4,10 +4,11 @@
     </div>
 
     <div class="menu">
-        <a href="#home">Home</a>
-        <a href="#program">Our Program</a>
-        <a href="#about">About</a>
-        <a href="/login">Login</a>
+        <a href="{{ route('home') }}#home">Home</a>
+        <a href="{{ route('home') }}#program">Our Program</a>
+        <a href="{{ route('home') }}#about">About</a>
+        <a href="{{ route('login') }}">Login</a>
     </div>
 </nav>
+
 
