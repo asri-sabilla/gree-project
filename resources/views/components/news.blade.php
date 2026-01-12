@@ -13,7 +13,7 @@
 </div>
 
 <div class="program-card">
-    <img src="{{ asset('img/farm 2.jpg') }}">
+    <img src="{{ asset('img/kek.jpg')}}">
     <h4>Kunjungan Edukasi Kebun</h4>
     <p>24 Jan 2026</p>
     <p class="price">Rp 100.000</p>
@@ -21,7 +21,7 @@
 </div>
 
 <div class="program-card">
-    <img src="{{ asset('img/farm 3.jpg') }}">
+    <img src="{{ asset('img/kmd.jpg')}}">
     <h4>Kelas Menanam Dasar</h4>
     <p>7 Feb 2026</p>
     <p class="price">Rp 150.000</p>
@@ -29,7 +29,7 @@
 </div>
 
 <div class="program-card">
-    <img src="{{ asset('img/farm 4.jpg') }}">
+    <img src="{{ asset('img/wto.jpg')}}">
     <h4>Workshop Tanaman Organik</h4>
     <p>21 Feb 2026</p>
     <p class="price">Rp 170.000</p>
@@ -45,7 +45,7 @@
 </div>
 
 <div class="program-card">
-    <img src="{{ asset('img/farm 6.jpg') }}">
+    <img src="{{ asset('img/kpt.jpg')}}">
     <h4>Kelas Perawatan Tanaman</h4>
     <p>21 Mar 2026</p>
     <p class="price">Rp 140.000</p>
@@ -53,7 +53,7 @@
 </div>
 
 <div class="program-card">
-    <img src="{{ asset('img/farm 7.jpg') }}">
+    <img src="{{ asset('img/edl.jpg')}}">
     <h4>Edukasi Pertanian Berkelanjutan</h4>
     <p>4 Apr 2026</p>
     <p class="price">Rp 160.000</p>
@@ -61,7 +61,7 @@
 </div>
 
 <div class="program-card">    
-    <img src="{{ asset('img/farm 8.jpg') }}">
+    <img src="{{ asset('img/feua.jpg')}}">
     <h4>Farm Experience untuk Anak</h4>
     <p>18 Apr 2026</p>
     <p class="price">Rp 90.000</p>
@@ -69,7 +69,7 @@
 </div>
 
 <div class="program-card">
-    <img src="{{ asset('img/farm 9.png') }}">
+    <img src="{{ asset('img/ktp.jpg')}}">
     <h4>Kelas Tanaman Pangan</h4>
     <p>2 Mei 2026</p>
     <p class="price">Rp 150.000</p>
@@ -77,7 +77,7 @@
 </div>
 
 <div class="program-card">
-    <img src="{{ asset('img/farm 10.jpg') }}">
+    <img src="{{ asset('img/wuf.jpg')}}">
     <h4>Workshop Urban Farming</h4>
     <p>16 Mei 2026</p>
     <p class="price">Rp 180.000</p>

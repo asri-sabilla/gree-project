@@ -16,7 +16,7 @@
         </div>
 
         <div class="vm-image">
-            <img src="{{ asset('img/farm 3.jpg') }}">
+            <img src="{{ asset('img/farm-3.jpg')}}">
         </div>
     </div>
 
