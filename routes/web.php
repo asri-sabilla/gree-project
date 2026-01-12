@@ -8,3 +8,8 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('auth.register');
 })->name('register');
+
+
+Route::get('/book', function () {
+return view('book');
+});
