@@ -45,4 +45,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function workshops()
+{
+    return $this->belongsToMany(Workshop::class);
+}
+
 }

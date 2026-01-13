@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins", sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background: linear-gradient(90deg, #ffffff, #d4fac3, #ffffff);
+}
+
+/* ===== SUCCESS SECTION ===== */
+.success{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.success-card{
+
+    /* Glass-style card with green -> yellow subtle blend */
+    background: linear-gradient(135deg,
+        rgba(48,145,48,0.14) 0%,
+        rgba(255,217,0,0.12) 50%,
+        rgba(255,255,255,0.06) 100%);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    border: 1px solid #ffffff;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #062b0a;
+    position: relative;
+    overflow: hidden;
+    width:900px;
+    padding:40px;
+    border-radius:40px;
+    display:flex;
+    justify-content:space-between;
+    box-shadow:0 30px 60px rgba(0,0,0,.15);
+}
+
+/* LEFT */
+.success-left{
+    width:55%;
+}
+
+.success-left h1{
+    font-size:36px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.success-left .info{
+    font-size:14px;
+    margin-bottom:18px;
+    line-height:1.6;
+}
+
+.success-left .join{
+    font-size:13px;
+    font-weight:600;
+}
+
+/* RIGHT */
+.success-right{
+    width:45%;
+    background:#ffffff;
+    padding:25px;
+    border-radius:25px;
+}
+
+.success-right p{
+    font-size:14px;
+    margin-bottom:12px;
+}
+
+/* ===== FOOTER ===== */
+.footer{
+    background: linear-gradient(90deg, #2e8b2d, #0f3f14);
+    color:white;
+    padding:40px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.footer-left{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.footer-left h2{
+    font-size:26px;
+}
+
+.wa-icon{
+    width:60px;
+    height:60px;
+    background:#25D366;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.wa-icon img{
+    width:30px;
+}
+
+.footer-right h3{
+    margin-bottom:10px;
+}
+
+.footer-right p{
+    line-height:1.6;
+}

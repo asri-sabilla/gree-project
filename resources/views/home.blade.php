@@ -1,23 +1,18 @@
-@extends('layouts.app')
+@extends('layout.master')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+<section id="home" class="no-padding">
+    @include('components.hero')
+</section>
 
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<section id="about">
+    @include('components.vission-mission')
+    @include('components.our-team')
+</section>
+
+<section id="program">
+    @include('components.news')
+</section>
+
 @endsection
