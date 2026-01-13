@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Booking;
+use App\Models\booking;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\DaftarBooking;
 
@@ -12,7 +12,7 @@ class BookingController extends Controller
 {
     //Eloquent ORM
     public function cekobject(){
-        $booking = new Booking;
+        $booking = new booking;
         dump($booking);
     }
     // public function store(Request $request)
@@ -31,7 +31,7 @@ class BookingController extends Controller
     // }
 
     public function insertBook(){
-        $booking = new Booking;
+        $booking = new booking;
         $booking->nama = 'Sari Citra Lestari';
         $booking->workshop = 'menanam buah di pekarangan';
         $booking->whatsapp = '08123456789';
@@ -55,7 +55,7 @@ class BookingController extends Controller
     }
 
     public function update(){
-        $booking = Booking::find(1);
+        $booking = booking::find(1);
         $booking->workshop = 'Mengecek kesegaran buah';
         $booking->metode_pembayaran = 'Transfer Bank BSI';
         $booking->save();
@@ -63,7 +63,7 @@ class BookingController extends Controller
     }
 
     public function delete(){
-        $booking = Booking::find(1);
+        $booking = booking::find(1);
         $booking->delete();
         dump($booking);
         // error jika booking tidak ditemukan
@@ -132,7 +132,7 @@ class BookingController extends Controller
             'email' => 'required|email',
             'metode_pembayaran' => 'required',
         ]);
-        $booking = Booking::create($validateData);
+        $booking = booking::create($validateData);
         return view('success', ['booking' => $booking]);
     }
 }
