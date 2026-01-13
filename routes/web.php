@@ -61,9 +61,18 @@ Route::get('/tabel-workshop',[WorkshopController::class,'tabelWorkshop'])->middl
 
 //authentication
 Auth::routes();
-Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('auth');
+Route::get('/home', function () {
+    $user = auth()->user();
+
+if ($user->email === 'admin@gmail.com') {
+        return redirect()->route('admin.workshops.index');
+    }
+
+    return view('home');
+})->middleware('auth');
 
 Route::middleware(['auth','admin'])->group(function () {
+Route::resource('admin/workshops', WorkshopController::class);
 
     Route::get('/workshops', [WorkshopController::class, 'index'])
         ->name('admin.workshops.index');
