@@ -6,7 +6,8 @@
             <h3><b>Let’s Join Our<br>Community</b></h3>
 
             <div class="wa-icon">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                <a href="https://chat.whatsapp.com/Ca6zovqCI5uJWmWtL2xCHS" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"> </a>
             </div>
         </div>
 

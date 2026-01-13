@@ -13,7 +13,7 @@
 
         <div class="team-item">
             <div class="team-photo">
-                <img src="{{ asset('img/kia2.png') }}">
+                <img src="{{ asset('img/jihan.jpeg') }}">
             </div>
             <h4>Name</h4>
             <p>NIM – Jurusan</p>
