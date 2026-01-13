@@ -1,10 +1,11 @@
-<div class="team-wrapper">
+<div id="about" class="team-wrapper">
+
     <h2>Our Team</h2>
 
     <div class="team-list">
         <div class="team-item">
             <div class="team-photo">
-                <img src="{{ asset('img/team1.jpg') }}">
+                <img src="{{ asset('img/kia2.png') }}">
             </div>
             <h4>Name</h4>
             <p>NIM – Jurusan</p>
@@ -12,7 +13,7 @@
 
         <div class="team-item">
             <div class="team-photo">
-                <img src="{{ asset('img/team2.jpg') }}">
+                <img src="{{ asset('img/kia2.png') }}">
             </div>
             <h4>Name</h4>
             <p>NIM – Jurusan</p>
@@ -20,7 +21,7 @@
 
         <div class="team-item">
             <div class="team-photo">
-                <img src="{{ asset('img/team3.jpg') }}">
+                <img src="{{ asset('img/kia2.png') }}">
             </div>
             <h4>Name</h4>
             <p>NIM – Jurusan</p>

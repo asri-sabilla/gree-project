@@ -1,4 +1,4 @@
-<div class="vm-wrapper">
+<div id="about" class="vm-wrapper">
         <div class="vm-inner">
 
     <!-- VISION -->
@@ -16,14 +16,14 @@
         </div>
 
         <div class="vm-image">
-            <img src="{{ asset('img/farm-3.jpg')}}">
+            <img src="{{ asset('img/farm 9.png')}}">
         </div>
     </div>
 
     <!-- MISSION -->
     <div class="vm-row mission">
         <div class="vm-image">
-            <img src="{{ asset('img/farm 4.jpg') }}">
+            <img src="{{ asset('img/farm 9.png') }}">
         </div>
 
         <div class="vm-text">

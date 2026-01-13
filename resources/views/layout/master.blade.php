@@ -18,47 +18,68 @@
 @include('layout.footer')
 
 <script>
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".navbar a");
+document.addEventListener("DOMContentLoaded", function () {
 
-window.addEventListener("scroll", () => {
-    let current = "";
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 120;
-        if (scrollY >= sectionTop) {
-            current = section.getAttribute("id");
-        }
-    });
+    const navbar = document.querySelector(".navbar");
+    const navLinks = document.querySelectorAll(".menu a");
+    const sections = document.querySelectorAll("[id]");
 
-    navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + current) {
-            link.classList.add("active");
+    function onScroll() {
+        let current = "";
+
+        sections.forEach(section => {
+            const top = section.offsetTop - 120;
+            const height = section.offsetHeight;
+
+            if (window.scrollY >= top && window.scrollY < top + height) {
+                current = section.getAttribute("id");
+            }
+        });
+
+        // === ACTIVE MENU ===
+        navLinks.forEach(link => {
+            link.classList.remove("active");
+            if (link.getAttribute("href").includes("#" + current)) {
+                link.classList.add("active");
+            }
+        });
+
+        // === NAVBAR BLUR ===
+        if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+        } else {
+            navbar.classList.remove("scrolled");
         }
-    });
+    }
+
+    window.addEventListener("scroll", onScroll);
+    onScroll();
 });
 
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".navbar a");
+// ===== NEWS SLIDER NAVIGATION =====
+const newsSlider = document.getElementById('newsSlider');
+const newsSliderLeft = document.getElementById('newsSliderLeft');
+const newsSliderRight = document.getElementById('newsSliderRight');
 
-window.addEventListener("scroll", () => {
-    let current = "";
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 120;
-        if (scrollY >= sectionTop) {
-            current = section.getAttribute("id");
-        }
+if (newsSlider && newsSliderLeft && newsSliderRight) {
+    const scrollAmount = 280; // card width + gap
+    
+    newsSliderLeft.addEventListener('click', () => {
+        newsSlider.scrollBy({
+            left: -scrollAmount,
+            behavior: 'smooth'
+        });
     });
-
-    navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + current) {
-            link.classList.add("active");
-        }
+    
+    newsSliderRight.addEventListener('click', () => {
+        newsSlider.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
     });
-});
+}
 
-/* ===== PROGRAM MODAL ===== */
+// ===== PROGRAM MODAL =====
 const cards = document.querySelectorAll('.program-card');
 const modal = document.getElementById('programModal');
 const closeBtn = document.querySelector('.close');

@@ -1,4 +1,5 @@
-<div class="hero-wrapper">
+<div id="home" class="hero-wrapper">
+
     <div class="hero-bg"></div>
 
     <div class="hero-overlay"></div>
