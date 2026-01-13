@@ -29,11 +29,11 @@
 
         <!-- RIGHT -->
         <div class="success-right">
-        <p><strong>Nama :</strong> {{ $booking->nama }}</p>
-        <p><strong>Workshop :</strong> {{ $booking->workshop }}</p>
-        <p><strong>Nomor WhatsApp :</strong> {{ $booking->whatsapp }}</p>
-        <p><strong>Email :</strong> {{ $booking->email }}</p>
-        <p><strong>Pembayaran :</strong> {{ $booking->metode_pembayaran }}</p>
+        <p><strong>Nama :</strong> {{ $booking->nama ?? '-' }}</p>
+        <p><strong>Workshop :</strong> {{ $booking->workshop ?? '-' }}</p>
+        <p><strong>Nomor WhatsApp :</strong> {{ $booking->whatsapp ?? '-' }}</p>
+        <p><strong>Email :</strong> {{ $booking->email ?? '-' }}</p>
+        <p><strong>Pembayaran :</strong> {{ $booking->metode_pembayaran ?? '-' }}</p>
     </div>
 
     </div>
