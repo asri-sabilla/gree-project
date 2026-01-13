@@ -40,13 +40,13 @@ class LoginController extends Controller
         $this->middleware('auth')->only('logout');
     }
 
-    protected function authenticated(Request $request, $user)
+    protected function redirectTo()
     {
-        if ($user->email === 'admin@gmail.com') {
-            return redirect()->route('admin.workshops.index');
+        if (auth()->user()->email === 'admin@gmail.com') {
+            return route('admin.workshops.index');
         }
 
-        return redirect('/home');
+        return '/home';
     }
     protected $redirectAfterLogout = '/login';
 

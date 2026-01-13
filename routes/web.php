@@ -61,36 +61,33 @@ Route::get('/tabel-workshop',[WorkshopController::class,'tabelWorkshop'])->middl
 
 //authentication
 Auth::routes();
-Route::get('/home', function () {
-    $user = auth()->user();
 
-if ($user->email === 'admin@gmail.com') {
-        return redirect()->route('admin.workshops.index');
-    }
+Route::get('/home', [HomeController::class, 'index'])
+    ->name('home')
+    ->middleware('auth');
 
-    return view('home');
-})->middleware('auth');
+Route::prefix('admin')
+    ->middleware(['auth','admin'])
+    ->name('admin.')
+    ->group(function () {
 
-Route::middleware(['auth','admin'])->group(function () {
-Route::resource('admin/workshops', WorkshopController::class);
+        Route::get('/workshops', [WorkshopController::class, 'index'])
+            ->name('admin.workshops.index');
 
-    Route::get('/workshops', [WorkshopController::class, 'index'])
-        ->name('admin.workshops.index');
+        Route::get('/workshops/create', [WorkshopController::class, 'create'])
+            ->name('admin.workshops.create');
 
-    Route::get('/workshops/create', [WorkshopController::class, 'create'])
-        ->name('admin.workshops.create');
+        Route::post('/workshops', [WorkshopController::class, 'store'])
+            ->name('admin.workshops.store');
 
-    Route::post('/workshops', [WorkshopController::class, 'store'])
-        ->name('admin.workshops.store');
+        Route::get('/workshops/{id}/edit', [WorkshopController::class, 'edit'])
+            ->name('admin.workshops.edit');
 
-    Route::get('/workshops/{id}/edit', [WorkshopController::class, 'edit'])
-        ->name('admin.workshops.edit');
+        Route::patch('/workshops/{id}', [WorkshopController::class, 'update'])
+            ->name('admin.workshops.update');
 
-    Route::patch('/workshops/{id}', [WorkshopController::class, 'update'])
-        ->name('admin.workshops.update');
-
-    Route::delete('/workshops/{id}', [WorkshopController::class, 'destroy'])
-        ->name('admin.workshops.destroy');
+        Route::delete('/workshops/{id}', [WorkshopController::class, 'destroy'])
+            ->name('admin.workshops.destroy');
 });
 
 //policy
