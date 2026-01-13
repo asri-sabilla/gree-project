@@ -13,3 +13,8 @@ Route::get('/register', function () {
 Route::get('/book', function () {
 return view('book');
 });
+
+
+Route::get('/success', function () {
+    return view('success');
+})->name('success');
