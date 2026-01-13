@@ -273,26 +273,38 @@ section{ width:100%; }
 /* ================= FLOATING WA ================= */
 
 .wa-float{
-    position:fixed;
-    right:26px;
-    bottom:26px;
-    background: linear-gradient(135deg, var(--green-main), #34D399);
-    padding:12px 18px;
-    border-radius:30px;
-    font-size:13px;
+    position: fixed;
+    right: 26px;
+    bottom: 26px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(16, 185, 129, 0.45),
+        rgba(52, 211, 153, 0.35)
+    );
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    padding: 12px 18px;
+    border-radius: 30px;
+    font-size: 13px;
     font-weight: 600;
-    display:flex;
-    align-items:center;
-    gap:10px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
     box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35);
-    z-index:999;
+    border: 1px solid rgba(255,255,255,0.35);
+
+    z-index: 999;
     transition: .3s ease;
     color: #fff;
 }
 
 .wa-float:hover{ 
     transform: translateY(-6px);
-    box-shadow: 0 12px 32px rgba(16, 185, 129, 0.45);
+    box-shadow: 0 14px 36px rgba(16, 185, 129, 0.45);
 }
 
 /* ================= OUR TEAM ================= */
@@ -502,6 +514,17 @@ section{ width:100%; }
     align-items: center;
     justify-content: center;
     box-shadow: 0 6px 20px rgba(245, 158, 11, 0.3);
+    transition: .3s ease;
+}
+
+.wa-icon2{
+    width: 30px; 
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     transition: .3s ease;
 }
 

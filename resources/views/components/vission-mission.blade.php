@@ -42,9 +42,9 @@
     <!-- Floating WA -->
     <div class="wa-float">
         <span>Need Help? Chat with us</span>
-        <img src="{{ asset('img/whatsapp.web') }}">
-    </div>
-
+                    <div class="wa-icon2">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+            </div>
 </div>
 
 </div>
