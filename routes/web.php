@@ -72,22 +72,22 @@ Route::prefix('admin')
     ->group(function () {
 
         Route::get('/workshops', [WorkshopController::class, 'index'])
-            ->name('admin.workshops.index');
+            ->name('workshops.index');
 
         Route::get('/workshops/create', [WorkshopController::class, 'create'])
-            ->name('admin.workshops.create');
+            ->name('workshops.create');
 
         Route::post('/workshops', [WorkshopController::class, 'store'])
-            ->name('admin.workshops.store');
+            ->name('workshops.store');
 
         Route::get('/workshops/{id}/edit', [WorkshopController::class, 'edit'])
-            ->name('admin.workshops.edit');
+            ->name('workshops.edit');
 
         Route::patch('/workshops/{id}', [WorkshopController::class, 'update'])
-            ->name('admin.workshops.update');
+            ->name('workshops.update');
 
         Route::delete('/workshops/{id}', [WorkshopController::class, 'destroy'])
-            ->name('admin.workshops.destroy');
+            ->name('workshops.destroy');
 });
 
 //policy
