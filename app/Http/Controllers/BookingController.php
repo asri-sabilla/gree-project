@@ -132,7 +132,8 @@ class BookingController extends Controller
             'email' => 'required|email',
             'metode_pembayaran' => 'required',
         ]);
-        $booking = Booking::create($validateData);
-        return view('success', compact('booking'));
+         Booking::create($validateData);
+
+    return redirect()->route('success');
     }
 }
