@@ -30,3 +30,27 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('auth.register');
 })->name('register');
+
+Route::get('/profile', function () {
+    return view('pages.profile');
+})->name('profile');
+
+Route::post('/booking', function (Request $request) {
+
+    session([
+        'nama'     => $request->nama,
+        'workshop' => $request->workshop,
+        'wa'       => $request->wa,
+        'email'    => $request->email,
+        'payment'  => $request->payment,
+        'booked'   => true,
+    ]);
+
+    return redirect()->route('success');
+
+})->name('booking.submit');
+
+Route::get('/success', function () {
+    return view('pages.success');
+})->name('success');
+
