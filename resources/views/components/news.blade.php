@@ -105,10 +105,10 @@
 <div class="program-card">
 
     @if($workshop->poster)
-        <img src="{{ asset('uploads/'.$workshop->poster) }}" alt="{{ $workshop->title }}">
-        @else
-            <img src="{{ asset('img/default.jpg') }}">
-        @endif
+        <img src="{{ asset('storage/uploads/'.$workshop->poster) }}">
+    @else
+        <img src="{{ asset('img/default.jpg') }}">
+    @endif
 
     <h4>{{ $workshop->title }}</h4>
 

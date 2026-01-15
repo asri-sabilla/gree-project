@@ -30,12 +30,11 @@ public function store(Request $request)
         'poster' => 'nullable|image|max:2048',
     ]);
 
-    if ($request->hasFile('poster')) {
-    $file = $request->file('poster');
-    $name = time().'.'.$file->getClientOriginalExtension();
-    $file->move(public_path('uploads'), $name);
-
-    $data['poster'] = $name;
+   if ($request->hasFile('poster')) {
+        $file = $request->file('poster');
+        $filename = time().'_'.$file->getClientOriginalName();
+        $file->storeAs('uploads', $filename, 'public');
+        $validateData['poster'] = $filename;
 }
 
     $workshop =Workshop::create([
