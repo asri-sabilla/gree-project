@@ -1,5 +1,12 @@
+# Kelompok Kami
+Nama Kelompok : ThreeVolution
+Anggota :
+1. Asri Sabilla Putri (2310120021)
+2. Jihan Aqilah (2310120007)
+3. Dalila Tazkia (2310120004)
+
 # Link Demo Project
-https://youtu.be/7Plm6QOHC5s
+https://youtu.be/_0_pSwvWvx8?si=Ig2jGlamT1wQg9eE
 
 # Dokumentasi CI/CD Pipeline
 
