@@ -105,9 +105,13 @@
 <div class="program-card">
 
     @if($workshop->poster)
-        <img src="{{ $workshop->poster ?? asset('img/default.jpg') }}">
+        <img src="{{ $workshop->poster }}" alt="{{ $workshop->title }}">
+    @else
+        <img src="{{ asset('img/default.jpg') }}" alt="Default Workshop">
+    @endif
 
     <h4>{{ $workshop->title }}</h4>
+
     <p>
         <b>Hari/Tanggal :</b>
         {{ \Carbon\Carbon::parse($workshop->date)->format('d M Y') }}
