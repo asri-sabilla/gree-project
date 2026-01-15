@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Workshop;
 use Illuminate\Support\Str;
 use App\Http\Requests\DaftarWorkshop;
-use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 // use Illuminate\Support\Facades\DB;
 // use Illuminate\Support\Facades\Auth; 
 
@@ -31,35 +30,27 @@ public function store(Request $request)
         'poster' => 'nullable|image|max:2048',
     ]);
 
-if ($request->hasFile('poster')) {
+    if ($request->hasFile('poster')) {
+    $file = $request->file('poster');
+    $name = time().'.'.$file->getClientOriginalExtension();
+    $file->move(public_path('uploads'), $name);
+    $data['poster'] = asset('uploads/'.$name);
+}
 
-        if (env('CLOUDINARY_URL')) {
-            // CLOUDINARY
-            $upload = Cloudinary::upload(
-                $request->file('poster')->getRealPath()
-            );
-            $data['poster'] = $upload->getSecurePath();
-        } else {
-            $file = $request->file('poster');
-            $name = time().'.'.$file->getClientOriginalExtension();
-            $file->move(public_path('uploads'), $name);
-            $data['poster'] = asset('uploads/'.$name);
-        }
-
-        $workshop=Workshop::create([
-            'title' => $validateData['title'],
-            'description' => $validateData['description'],
-            'date' => $validateData['date'],
-            'lokasi' => $validateData['lokasi'],
-            'price' => $validateData['price'],
-            'poster' => $data['poster'],
-        ]);
+    $workshop =Workshop::create([
+        'title' => $validateData['title'],
+        'description' => $validateData['description'],
+        'date' => $validateData['date'],
+        'lokasi' => $validateData['lokasi'],
+        'price' => $validateData['price'],
+        'poster' => $validateData['poster'],
+    ]);
 
     $request->session()->flash('new_workshop_id', $workshop->id);
     $request->session()->flash('pesan', "Penambahan data {$validateData['title']} berhasil");
     return redirect()->route('admin.workshops.index');
 }
-}
+
     //read
     public function index()
     {
