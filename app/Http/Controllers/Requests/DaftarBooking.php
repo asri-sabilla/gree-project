@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Requests;
-
 use Illuminate\Foundation\Http\FormRequest;
 
 class DaftarBooking extends FormRequest
@@ -27,6 +26,7 @@ class DaftarBooking extends FormRequest
             'whatsapp' => 'required|min:10|max:14',
             'email' => 'required|email',
             'metode_pembayaran' => 'required',
+            'bukti_bayar' => 'required|file|mimes:jpg,png,jpeg|max:2048',
         ];
     }
     

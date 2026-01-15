@@ -101,6 +101,33 @@
     <p class="desc">Solusi berkebun di lahan terbatas untuk lingkungan perkotaan.</p>
 </div>
 
+@foreach($workshops as $workshop)
+<div class="program-card">
+
+    @if($workshop->poster)
+        <img src="{{ asset('storage/uploads/'.$workshop->poster) }}">
+    @else
+        <img src="{{ asset('img/default.jpg') }}">
+    @endif
+
+    <h4>{{ $workshop->title }}</h4>
+
+    <p>
+        <b>Hari/Tanggal :</b>
+        {{ \Carbon\Carbon::parse($workshop->date)->format('d M Y') }}
+    </p>
+
+    <p class="price">
+        <b>Harga :</b>
+        Rp {{ number_format($workshop->price, 0, ',', '.') }}
+    </p>
+
+    <p class="desc"><b>Deskripsi :</b></p>
+    <p class="desc">{{ $workshop->description }}</p>
+
+</div>
+@endforeach
+
     </div>
 
         <button class="slider-arrow slider-arrow-right" id="newsSliderRight">

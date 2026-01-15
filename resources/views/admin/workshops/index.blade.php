@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+@extends('admin.layouts.app')
+
+@section('content')
+
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,18 +10,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Data Workshop</title>
 </head>
-<body>
+<body> --}}
 
 <div class="container mt-4">
     <div class="row">
         <div class="col-12">
 
-            <form action="{{ route('logout') }}" method="POST" class="mb-3">
-                @csrf
-                <button type="submit" class="btn btn-danger">
-                    Logout
-                </button>
-            </form>
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h3>Data Workshop</h3>
                 <a href="{{ route('admin.workshops.create') }}" class="btn btn-primary">
@@ -114,5 +112,6 @@
     </div>
 </div>
 
-</body>
-</html>
+{{-- </body>
+</html> --}}
+@endsection

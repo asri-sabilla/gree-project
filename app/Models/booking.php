@@ -14,6 +14,14 @@ class booking extends Model
         'workshop',
         'whatsapp',
         'email',
-        'metode_pembayaran'
+        'metode_pembayaran',
+        'bukti_bayar',
+        'status'
     ];
+    public function user()
+{
+    return $this->belongsTo(User::class);
 }
+
+}
+

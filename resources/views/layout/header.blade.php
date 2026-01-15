@@ -15,8 +15,12 @@
             <span class="user-name">{{ Auth::user()->name }}</span>
 
             <div class="dropdown-content">
+                <a href="{{ route('profil') }}">
+                    Profil
+                </a>
+
                 <a href="{{ route('logout') }}"
-                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     Logout
                 </a>
             </div>

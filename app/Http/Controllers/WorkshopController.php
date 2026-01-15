@@ -27,15 +27,14 @@ public function store(Request $request)
         'date' => 'required|date',
         'lokasi' => 'required',
         'price' => 'required|numeric',
-        'poster' => 'nullable|file|image|max:2048',
+        'poster' => 'nullable|image|max:2048',
     ]);
 
-    $namaFile = null;
-
-   if($request->hasFile('poster')){
-    $extFile = $request->poster->getClientOriginalExtension();
-    $namaFile = $request->title.".".$extFile;
-    $request->poster->move(public_path('uploads'), $namaFile);
+   if ($request->hasFile('poster')) {
+        $file = $request->file('poster');
+        $filename = time().'_'.$file->getClientOriginalName();
+        $file->storeAs('uploads', $filename, 'public');
+        $validateData['poster'] = $filename;
 }
 
     $workshop =Workshop::create([
@@ -44,7 +43,7 @@ public function store(Request $request)
         'date' => $validateData['date'],
         'lokasi' => $validateData['lokasi'],
         'price' => $validateData['price'],
-        'poster' => $namaFile,
+        'poster' => $validateData['poster'],
     ]);
 
     $request->session()->flash('new_workshop_id', $workshop->id);

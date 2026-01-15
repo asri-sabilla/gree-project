@@ -28,7 +28,7 @@
     </div>
 @endif
 
-<form action="{{ route('bookings.store') }}" method="POST">
+<form action="{{ route('bookings.store') }}" method="POST" enctype="multipart/form-data">
 @csrf
 
 <div class="card">
@@ -72,6 +72,11 @@
         <option value="Dana - 085925285385">Dana - 085925285385</option>
         <option value="Gopay - 085839172283">Gopay - 085839172283</option>
     </select>
+
+    <label for="bukti_bayar">Upload Bukti Pembayaran</label>
+        <label class="form-label">Bukti Pembayaran</label>
+        <input type="file" name="bukti_bayar" class="form-control">
+        <small class="text-muted"> Format JPG/PNG, Max 2MB</small>
 
     <button type="submit" class="btn btn-primary mb-2"> Daftar </button>
     </div>

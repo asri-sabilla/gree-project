@@ -9,6 +9,7 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\FileUploadController;
 use App\Http\Controllers\Admin\AdminWorkshopController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -66,10 +67,22 @@ Route::get('/home', [HomeController::class, 'index'])
     ->name('home')
     ->middleware('auth');
 
+Route::get('/profil', [ProfileController::class, 'index'])
+    ->name('profil')
+    ->middleware('auth');
+
+Route::patch('/admin/bookings/{id}/status',
+    [BookingController::class, 'updateStatus']
+)->name('admin.bookings.updateStatus');
+
 Route::prefix('admin')
     ->middleware(['auth','admin'])
     ->name('admin.')
     ->group(function () {
+
+        Route::get('/dashboard', function () {
+            return view('admin.dashboard');
+        })->name('dashboard');
 
         Route::get('/workshops', [WorkshopController::class, 'index'])
             ->name('workshops.index');

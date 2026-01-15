@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('whatsapp');
             $table->string('email');
             $table->string('metode_pembayaran');
+            $table->string('bukti_bayar')->nullable();
+            $table->string('status')->default('Pending');
             $table->timestamps();
         });
     }

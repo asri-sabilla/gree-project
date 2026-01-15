@@ -43,7 +43,7 @@ class LoginController extends Controller
     protected function redirectTo()
     {
         if (auth()->user()->email === 'admin@gmail.com') {
-            return route('admin.workshops.index');
+            return route('admin.dashboard');
         }
 
         return '/home';

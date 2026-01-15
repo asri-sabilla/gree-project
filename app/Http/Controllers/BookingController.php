@@ -72,8 +72,9 @@ class BookingController extends Controller
     // Form Processing & Form Validation Booking
     public function index()
     {
-        return 'tabel booking disini';
-    }    
+        $bookings = booking::all();
+            return view('admin.bookings.index',['bookings' => $bookings]);
+    }   
 
     public function prosesForm(Request $request)
     {
@@ -83,6 +84,7 @@ class BookingController extends Controller
             'whatsapp' => 'required|min:10|max:14',
             'email' => 'required|email',
             'metode_pembayaran' => 'required',
+            'bukti_bayar' => 'nullable|image|max:2048',
         ],
         [
             'required' => ':attribute wajib diisi.',
@@ -131,8 +133,32 @@ class BookingController extends Controller
             'whatsapp' => 'required|min:10|max:14',
             'email' => 'required|email',
             'metode_pembayaran' => 'required',
+            'bukti_bayar' => 'nullable|image|max:2048',
         ]);
+        $namaFile = null;
+
+    if($request->hasFile('bukti_bayar')){
+        $file = $request->file('bukti_bayar');
+        $namaFile = time().'_'.$file->getClientOriginalName();
+        $file->move(public_path('bukti'), $namaFile);
+    }
+        $validateData['bukti_bayar'] = $namaFile;
+
         $booking = booking::create($validateData);
         return view('success', ['booking' => $booking]);
     }
+
+    public function updateStatus(Request $request, $id)
+    {
+        $request->validate([
+            'status' => 'required|in:Pending,Sukses,Failed'
+        ]);
+
+        $booking = booking::findOrFail($id);
+        $booking->status = $request->status;
+        $booking->save();
+
+        return back();
+    }
+
 }
