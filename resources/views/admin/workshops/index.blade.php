@@ -40,7 +40,6 @@
                         <th>Harga</th>
                         <th>Poster</th>
                         <th class="text-center">Aksi</th>
-                        <th>Status</th> 
                     </tr>
                 </thead>
 
@@ -87,14 +86,6 @@
                                     Hapus
                                 </button>
                             </form>
-
-                        <td class="text-center">
-                        @if(session('new_workshop_id') == $workshop->id)
-                            <span class="badge bg-warning text-dark">Draft</span>
-                        @else
-                            <span class="badge bg-primary">Publish</span>
-                        @endif
-                    </td>
 
                         </td>
                     </tr>
