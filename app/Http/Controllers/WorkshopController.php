@@ -31,17 +31,19 @@ public function store(Request $request)
         'poster' => 'nullable|image|max:2048',
     ]);
 
-    $posterUrl = null;
+if ($request->hasFile('poster')) {
 
-        if ($request->hasFile('poster')) {
-            $uploadedFileUrl = Cloudinary::upload(
-                $request->file('poster')->getRealPath(),
-                [
-                    'folder' => 'workshops'
-                ]
-            )->getSecurePath();
-
-            $posterUrl = $uploadedFileUrl;
+        if (env('CLOUDINARY_URL')) {
+            // CLOUDINARY
+            $upload = Cloudinary::upload(
+                $request->file('poster')->getRealPath()
+            );
+            $data['poster'] = $upload->getSecurePath();
+        } else {
+            $file = $request->file('poster');
+            $name = time().'.'.$file->getClientOriginalExtension();
+            $file->move(public_path('uploads'), $name);
+            $data['poster'] = asset('uploads/'.$name);
         }
 
         $workshop=Workshop::create([
@@ -50,14 +52,14 @@ public function store(Request $request)
             'date' => $validateData['date'],
             'lokasi' => $validateData['lokasi'],
             'price' => $validateData['price'],
-            'poster' => $posterUrl, 
+            'poster' => $data['poster'],
         ]);
 
     $request->session()->flash('new_workshop_id', $workshop->id);
     $request->session()->flash('pesan', "Penambahan data {$validateData['title']} berhasil");
     return redirect()->route('admin.workshops.index');
 }
-
+}
     //read
     public function index()
     {
