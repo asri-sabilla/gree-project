@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Workshop;
 use Illuminate\Support\Str;
 use App\Http\Requests\DaftarWorkshop;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 // use Illuminate\Support\Facades\DB;
 // use Illuminate\Support\Facades\Auth; 
 
@@ -30,21 +31,27 @@ public function store(Request $request)
         'poster' => 'nullable|image|max:2048',
     ]);
 
-    if ($request->hasFile('poster')) {
-        $namaFile = time() . '.' . $request->poster->extension();
-        $request->poster->storeAs('uploads', $namaFile, 'public');
-        $validateData['poster'] = $namaFile;
+    $posterUrl = null;
 
-}
+        if ($request->hasFile('poster')) {
+            $uploadedFileUrl = Cloudinary::upload(
+                $request->file('poster')->getRealPath(),
+                [
+                    'folder' => 'workshops'
+                ]
+            )->getSecurePath();
 
-    $workshop =Workshop::create([
-        'title' => $validateData['title'],
-        'description' => $validateData['description'],
-        'date' => $validateData['date'],
-        'lokasi' => $validateData['lokasi'],
-        'price' => $validateData['price'],
-        'poster' => $validateData['poster'],
-    ]);
+            $posterUrl = $uploadedFileUrl;
+        }
+
+        $workshop=Workshop::create([
+            'title' => $validateData['title'],
+            'description' => $validateData['description'],
+            'date' => $validateData['date'],
+            'lokasi' => $validateData['lokasi'],
+            'price' => $validateData['price'],
+            'poster' => $posterUrl, 
+        ]);
 
     $request->session()->flash('new_workshop_id', $workshop->id);
     $request->session()->flash('pesan', "Penambahan data {$validateData['title']} berhasil");
