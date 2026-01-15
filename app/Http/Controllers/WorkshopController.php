@@ -34,7 +34,8 @@ public function store(Request $request)
     $file = $request->file('poster');
     $name = time().'.'.$file->getClientOriginalExtension();
     $file->move(public_path('uploads'), $name);
-    $data['poster'] = asset('uploads/'.$name);
+
+    $data['poster'] = $name;
 }
 
     $workshop =Workshop::create([
